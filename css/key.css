@@ -1,0 +1,67 @@
+#key {
+  position        : absolute;
+  left            : 0px;
+  bottom          : 14px;
+  height          : 32px;
+  width           : 32px;
+  border          : 2px solid rgba( 255, 255, 255, 0.75 );
+  border          : 2px solid rgba( 175,  65, 215, 0.75 );
+  border-radius   : 50%;
+  border-radius   : 5px;
+  overflow        : hidden;
+  cursor          : pointer;
+  z-index         : 110;
+  transition      : all 320ms;
+  transition      : all 0.5s cubic-bezier(.99, -.09, .04, 1.14);
+}
+
+#key:hover, #key:focus-within {
+  width           : 580px;
+}
+#key:hover #key-cover, #key:focus-within #key-cover {
+  opacity         : 0;
+}
+
+#key-cover {
+  position        : absolute;
+  height          : 32px;
+  width           : 32px;
+  background-image: url('../assets/key.icon.png');
+  background-size : cover;
+}
+
+#key-input {
+  width           : 580px;
+  background      : none;
+  background      : rgba( 1, 1, 1, 0.33 );
+  border-bottom   : 1px solid rgba( 1, 1, 1, 1 );
+  border          : none;
+  outline         : none;
+}
+
+#key-progress {
+  position        : absolute;
+  left            : 0px;
+  bottom          : 0px;
+  height          : 3px;
+  width           : 100%;
+  background      : rgba( 1, 1, 1, 0.06 );
+}
+
+#key-progress-internal {
+  position        : absolute;
+  left            : 0px;
+  top             : 0px;
+  height          : 3px;
+  width           : 0px;
+  background      : rgba( 1, 1, 1, 0.13 );
+}
+
+/* Fonts */
+#key-input {
+  font-family     : 'Archivo';
+  font-size       : 10pt;
+  color           : rgba( 222, 222, 222, 1 );
+  line-height     : 26pt;
+  text-align      : center;
+}

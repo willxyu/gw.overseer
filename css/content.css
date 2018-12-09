@@ -1,0 +1,162 @@
+#content {
+  position        : absolute;
+  left            : 0px;
+  top             : 0px;
+  height          : 100%;
+  width           : 85%;
+  background      : inherit;
+  border-left     : 2px solid rgba( 1, 1, 1, 1 );
+  border-right    : 2px solid rgba( 1, 1, 1, 1 );
+  overflow        : hidden;
+}
+
+#content-background {
+  position        : absolute;
+  left            : -30px;
+  top             : -30px;
+  height          : calc(100% + 60px);
+  width           : calc(100% + 60px);
+  background      : inherit;
+  filter          : blur(12px);
+  overflow        : hidden;
+}
+
+#display {
+  position        : absolute;
+  left            : 0px;
+  top             : 0px;
+  height          : 100%;
+  width           : 100%;
+  overflow-y      : scroll;
+}
+
+.chr {
+  position        : relative;
+  display         : inline-block;
+  margin          : 4px;
+  height          : 210px;
+  width           : 128px;
+  border          : 1px solid rgba( 55, 55, 55, 1 );
+}
+
+.slot {
+  position        : absolute;
+  height          : 21px;
+  width           : 21px;
+  background-size : cover;
+  border          : 3px solid rgba( 55, 55, 55, 1 );
+  cursor          : pointer;
+}
+.slot.armor {
+  left            : 5px;
+  top             : 5px;
+}
+.slot.armor.shoulders { top:  33px; }
+.slot.armor.coat      { top:  61px; }
+.slot.armor.gloves    { top:  89px; }
+.slot.armor.leggings  { top: 117px; }
+.slot.armor.boots     { top: 145px; }
+.slot.trinket.backpack   { left:  39px; top:  5px; }
+.slot.trinket.accessory1 { left:  67px; top:  5px; }
+.slot.trinket.accessory2 { left:  95px; top:  5px; }
+.slot.trinket.amulet     { left:  39px; top: 33px; }
+.slot.trinket.ring1      { left:  67px; top: 33px; }
+.slot.trinket.ring2      { left:  95px; top: 33px; }
+.slot.weapon.weaponA1 { left:  45px; top: 71px; }
+.slot.weapon.weaponA2 { left:  45px; top: 99px; }
+.slot.weapon.weaponB1 { left:  88px; top: 71px; }
+.slot.weapon.weaponB2 { left:  88px; top: 99px; }
+
+.slot.fade { 
+  opacity         : 0.33;
+}
+.slot.highlighted {
+  height          : 27px;
+  width           : 27px;
+  z-index         : 50;
+}
+.slot.highlighted.armor.helm      { left:  3px; top:   3px; }
+.slot.highlighted.armor.shoulders { left:  3px; top:  31px; }
+.slot.highlighted.armor.coat      { left:  3px; top:  59px; }
+.slot.highlighted.armor.gloves    { left:  3px; top:  87px; }
+.slot.highlighted.armor.leggings  { left:  3px; top: 115px; }
+.slot.highlighted.armor.boots     { left:  3px; top: 143px; }
+.slot.highlighted.trinket.backpack   { left: 36px; top:  3px; }
+.slot.highlighted.trinket.accessory1 { left: 64px; top:  3px; }
+.slot.highlighted.trinket.accessory2 { left: 92px; top:  3px; }
+.slot.highlighted.trinket.amulet     { left: 36px; top: 30px; }
+.slot.highlighted.trinket.ring1      { left: 64px; top: 30px; }
+.slot.highlighted.trinket.ring2      { left: 92px; top: 30px; }
+.slot.highlighted.weapon.weaponA1 { left:  43px; top: 68px; }
+.slot.highlighted.weapon.weaponA2 { left:  43px; top: 96px; }
+.slot.highlighted.weapon.weaponB1 { left:  85px; top: 68px; }
+.slot.highlighted.weapon.weaponB2 { left:  85px; top: 96px; }
+
+.nameplate {
+  position        : absolute;
+  left            : 0px;
+  bottom          : 0px;
+  height          : 24px;
+  width           : 128px;
+  border-top      : 1px solid rgba( 55, 55, 55, 1 );
+}
+
+.profplate {
+  position        : absolute;
+  right           : 8px;
+  bottom          : 27px;
+  height          : 42px;
+  width           : 42px;
+  background-size : contain;
+  border          : 0px solid rgba( 55, 55, 55, 1 );
+  opacity         : 0.55;
+  cursor          : pointer;
+}
+
+/* Borders */
+.slot.Legendary { border: 3px solid rgba(  65,   5, 140, 1 ); }
+.slot.Ascended  { border: 3px solid rgba( 142,   7, 117, 1 ); }
+.slot.Exotic    { border: 3px solid rgba( 150, 100,  25, 1 ); }
+
+.slot.highlighted {
+  border          : 2px solid rgba( 1, 1, 1, 1 );
+}
+.slot.highlighted.Legendary { border: 2px solid rgba( 103,  17, 224, 1 ); }
+.slot.highlighted.Ascended  { border: 2px solid rgba( 244,  66, 217, 1 ); }
+.slot.highlighted.Exotic    { border: 2px solid rgba( 239, 152,  11, 1 ); }
+
+/* Fonts */
+.nameplate {
+  font-family     : 'Archivo';
+  font-size       : 9pt;
+  line-height     : 19pt;
+  text-align      : center;
+}
+
+/* Images */
+.slot.armor.helm      { background-image: url('../assets/slot.armor.helm.png');      }
+.slot.armor.shoulders { background-image: url('../assets/slot.armor.shoulders.png'); }
+.slot.armor.coat      { background-image: url('../assets/slot.armor.coat.png');      }
+.slot.armor.gloves    { background-image: url('../assets/slot.armor.gloves.png');    }
+.slot.armor.leggings  { background-image: url('../assets/slot.armor.leggings.png');  }
+.slot.armor.boots     { background-image: url('../assets/slot.armor.boots.png');     }
+.slot.trinket.backpack   { background-image: url('../assets/slot.trinket.back.png'); }
+.slot.trinket.accessory1 { background-image: url('../assets/slot.trinket.accessory.png'); }
+.slot.trinket.accessory2 { background-image: url('../assets/slot.trinket.accessory.png'); }
+.slot.trinket.amulet     { background-image: url('../assets/slot.trinket.amulet.png'); }
+.slot.trinket.ring1      { background-image: url('../assets/slot.trinket.ring_1.png'); }
+.slot.trinket.ring2      { background-image: url('../assets/slot.trinket.ring_2.png'); }
+.slot.weapon.weaponA1 { background-image: url('../assets/slot.weapon.mainh.png'); }
+.slot.weapon.weaponA2 { background-image: url('../assets/slot.weapon.offh.png'); }
+.slot.weapon.weaponB1 { background-image: url('../assets/slot.weapon.mainh.png'); }
+.slot.weapon.weaponB2 { background-image: url('../assets/slot.weapon.offh.png'); }
+
+.profplate.Elementalist { background-image: url('../assets/icon.elementalist.png'); }
+.profplate.Mesmer       { background-image: url('../assets/icon.mesmer.png'); }
+.profplate.Necromancer  { background-image: url('../assets/icon.necromancer.png'); }
+.profplate.Engineer     { background-image: url('../assets/icon.engineer.png'); }
+.profplate.Ranger       { background-image: url('../assets/icon.ranger.png'); }
+.profplate.Thief        { background-image: url('../assets/icon.thief.png'); }
+.profplate.Guardian     { background-image: url('../assets/icon.guardian.png'); }
+.profplate.Revenant     { background-image: url('../assets/icon.revenant.png'); }
+.profplate.Warrior      { background-image: url('../assets/icon.warrior.png'); }

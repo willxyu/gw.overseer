@@ -1,0 +1,122 @@
+<html><head><title>Guild War 2 Overseer</title>
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
+  
+  <link rel='stylesheet' href='./css/main.css' />
+  <link rel='stylesheet' href='./css/key.css' />
+  <link rel='stylesheet' href='./css/content.css' />
+  <link rel='stylesheet' href='./css/content.extended.css' />
+  <link rel='stylesheet' href='./css/content.extended.circle.css' />
+  
+  <script src='./javascript/jquery-3.1.1.js'></script>
+  <script src='./javascript/jquery-ui.js'></script>
+  <script src='./javascript/gw.utility.js'></script>
+  <script src='./javascript/gw.adjustments.js'></script>
+  <script src='./javascript/gw.characters.js'></script>
+  <script src='./javascript/gw.factorise.js'></script>
+  <script src='./javascript/gw.ready.js'></script>
+  <script src='./javascript/gw.sift.js'></script>
+  <style>
+  </style>
+</head>
+<body>
+  <div id='pvp'><div id='pvp-value'></div><div id='pvp-icon'></div></div>
+  <div id='wvw'><div id='wvw-value'></div><div id='wvw-icon'></div></div>
+  <div id='gems'><div id='gems-value'></div><div id='gems-icon'></div></div>
+  <div id='gold'><div id='gold-value'></div><div id='gold-icon'></div></div>
+  <div id='key'>
+    <div id='key-cover'></div>
+    <input id='key-input'></input>
+    <div id='key-progress'>
+      <div id='key-progress-internal'></div>
+    </div>
+  </div>
+  <div id="content"><div id="content-background"></div><div id="display"></div></div>
+</body>
+<script>
+ options = {}
+ options.panelSize = 'compact'
+ 
+ attributes = ['toughness','vitality','power','precision','ferocity','conditions','expertise','healing','concentration']
+
+ gw = typeof gw != 'undefined' ? gw : {}
+ gw.calculateCharactersStats = function() {
+   for (var i = 0; i < gw.characters.length; i++) {
+     var arc   = gw.characters[i]
+     var equip = arc.equipment
+     var stats = {}
+     var includeList = ['Helm','Shoulders','Coat','Gloves','Leggings','Boots','Backpack','Accessory1','Accessory2','Amulet','Ring1','Ring2']
+     if (typeof arc._selectedWeapon == 'undefined') { arc._selectedWeapon = 'A' }
+     if (arc._selectedWeapon == 'A') {
+       includeList.push('WeaponA1')
+       includeList.push('WeaponA2')
+     } else if (arc._selectedWeapon == 'B') {
+       includeList.push('WeaponB1')
+       includeList.push('WeaponB2')
+     }
+     for (var j = 0; j < equip.length; j++) {
+       var item = equip[j]
+       if (typeof item.slot != 'undefined' && typeof item._stats != 'undefined') {
+         if (includeList.indexOf(item.slot) != -1) {
+           for (var attr in item._stats) {
+             stats[attr]  = stats[attr] || 0
+             stats[attr] += item._stats[attr]
+           }
+         }
+       }
+     }
+     arc._stats = stats
+   }
+ }
+
+ window.onload = function() {
+   gw.adjustments()
+   gw.ready()
+   
+   // Events
+   $(document).on('wallet-ready', function() {
+     for (var i = 0; i < gw.wallet.length; i++) {
+       var cur = gw.wallet[i]
+       if (cur.id == 4) {
+         gw.gems = cur.value
+       } else if (cur.id == 1) {
+         gw.gold = Math.floor( cur.value / 10000 )
+       }
+     }
+     $('#gems-value').text(gw.comma(gw.gems))
+     $('#gold-value').text(gw.comma(gw.gold))
+   }).on('achieve-ready', function() {
+     for (var i = 0; i < gw.achievements.length; i++) {
+       var ach = gw.achievements[i]
+       if (ach.id == 283) {
+         gw.wvwKills = ach.current
+       } else if (ach.id == 239) {
+         gw.pvpKills = ach.current
+       }
+     }
+     $('#wvw-value').text(gw.comma(gw.wvwKills))
+     $('#pvp-value').text(gw.comma(gw.pvpKills))
+   }).on('prefixList-ready', function() {
+     gw.prefixes = {}
+     var str = ''
+     for (var i = 0; i < gw.prefixList.length; i++) {
+       var id = gw.prefixList[i]
+       $.ajax({ url: 'https://api.guildwars2.com/v2/itemstats/' + id,
+         success: function(r) {
+           gw.prefixes[r.id] = r.name
+         }})
+     }
+   }).on('chr-ready', function() {
+     gw.displayCharacters()
+     gw.actionsCharacters()
+   }).on('all-ready', function() {
+     gw.calculateCharactersStats()
+     gw.factoriseAttributes()
+     gw.updatesCharacters()
+   })
+
+ }
+ // https://codepen.io/shehab-eltawel/pen/MyxxMB
+</script>
+</html>

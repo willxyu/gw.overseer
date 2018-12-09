@@ -1,0 +1,129 @@
+body {
+  background      : rgba( 145, 145, 145, 1 );
+  background-image: url('../assets/bg.norn.jpg');
+  background-size : cover;
+  background-attachment: fixed !important;
+  overflow        : hidden;
+  margin          : 0px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;               /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: rgba( 97, 97, 97, 1 );
+}
+
+#pvp {
+  position        : absolute;
+  left            : 4px;
+  top             : 13px;
+  width           : 48px;
+  height          : 23px;
+}
+#pvp-value {
+  position        : absolute;
+  right           : 28px;
+  
+  font-family     : 'Archivo';
+  font-size       : 8pt;
+  color           : rgba( 55, 55, 55, 1 );
+  line-height     : 20pt;
+  text-align      : right;
+}
+#pvp-icon {
+  position        : absolute;
+  right           : 2px;
+  top             : 0px;
+  height          : 23px;
+  width           : 23px;
+  background-image: url('../assets/symbol.pvp.png');
+  background-size : contain;
+}
+#wvw {
+  position        : absolute;
+  left            : 4px;
+  top             : 35px;
+  width           : 48px;
+  height          : 23px;
+}
+#wvw-value {
+  position        : absolute;
+  right           : 28px;
+  
+  font-family     : 'Archivo';
+  font-size       : 8pt;
+  color           : rgba( 55, 55, 55, 1 );
+  line-height     : 20pt;
+  text-align      : right;
+}
+#wvw-icon {
+  position        : absolute;
+  right           : 2px;
+  top             : 0px;
+  height          : 23px;
+  width           : 23px;
+  background-image: url('../assets/symbol.wvw.png');
+  background-size : contain;
+}
+#gems {
+  position        : absolute;
+  left            : 4px;
+  top             : 57px;
+  width           : 48px;
+  height          : 23px;
+}
+#gems-value {
+  position        : absolute;
+  right           : 28px;
+  
+  font-family     : 'Archivo';
+  font-size       : 8pt;
+  color           : rgba( 55, 55, 55, 1 );
+  line-height     : 20pt;
+  text-align      : right;
+}
+#gems-icon {
+  position        : absolute;
+  right           : 2px;
+  top             : 0px;
+  height          : 23px;
+  width           : 23px;
+  background-image: url('../assets/symbol.gems.png');
+  background-size : contain;
+}
+#gold {
+  position        : absolute;
+  left            : 4px;
+  top             : 79px;
+  width           : 48px;
+  height          : 23px;
+}
+#gold-value {
+  position        : absolute;
+  right           : 28px;
+  
+  font-family     : 'Archivo';
+  font-size       : 8pt;
+  color           : rgba( 55, 55, 55, 1 );
+  line-height     : 20pt;
+  text-align      : right;
+}
+#gold-icon {
+  position        : absolute;
+  right           : 2px;
+  top             : 0px;
+  height          : 23px;
+  width           : 23px;
+  background-image: url('../assets/symbol.gold.png');
+  background-size : contain;
+}
+

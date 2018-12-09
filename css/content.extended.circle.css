@@ -1,0 +1,61 @@
+.extended-info.profession .extended-circle {
+  position        : absolute;
+  left            : 6px;
+  top             : 35px;
+  height          : 68px;
+  width           : 68px;
+  background      : rgba( 1, 1, 1, 1 );
+  border          : 1px solid rgba( 222, 222, 222, 0.55 );
+  border-radius   : 50%;
+  background-image: '';
+}
+
+.extended-info.profession .extended-circle-point {
+  position        : absolute;
+  left            : 50%;
+  top             : 50%;
+  width           : 3px;
+  height          : 3px;
+  border          : 1px solid rgba( 1, 1, 1, 1);
+  transform       : translate( -50%, -50% ) rotate(0deg);
+  border-radius   : 50%;
+  box-shadow      : 0px 0px 3px 1px rgba(255, 255, 255, 1);
+  transform-origin: center;
+}
+
+.extended-info.profession .extended-circle-point.power {
+  background      : rgba( 211, 187,  33, 1.00 );
+}
+.extended-info.profession .extended-circle-point.precision {
+  background      : rgba( 255,   1,   1, 1.00 );
+}
+.extended-info.profession .extended-circle-point.ferocity {
+  background      : rgba( 224, 125,  26, 1.00 );
+}
+.extended-info.profession .extended-circle-point.conditions {
+  background      : rgba(  12, 161,  99, 1.00 );
+}
+.extended-info.profession .extended-circle-point.expertise {
+  background      : rgba( 108,   1, 235, 1.00 );
+}
+.extended-info.profession .extended-circle-point.vitality {
+  background      : rgba(  35, 221,  31, 1.00 );
+}
+.extended-info.profession .extended-circle-point.toughness {
+  background      : rgba(  70, 226, 213, 1.00 );
+}
+.extended-info.profession .extended-circle-point.healing {
+  background      : rgba(   1, 101, 255, 1.00 );
+}
+.extended-info.profession .extended-circle-point.concentration {
+  background      : rgba( 222,  90, 232, 1.00 );
+}
+
+.extended-info.profession .extended-circle-line {
+  position        : absolute;
+  height          : 1px;
+  /* width           : 100%; */
+  background      : rgba( 255, 255, 255, 1 );
+  box-shadow      : 0px 0px 3px 2px rgba(255, 255, 255, 0.33);
+  transform-origin: top left;
+}
